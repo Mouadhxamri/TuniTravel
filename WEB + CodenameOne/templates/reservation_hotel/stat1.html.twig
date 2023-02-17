@@ -1,0 +1,33 @@
+{% extends "empty-base.html.twig" %}
+{% block body %}
+<div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="card-box">
+                            <div class="dropdown pull-right">
+    <div class="app-content">
+        <div class="side-app">
+            <div class="page-header">
+
+            </div>
+            <div id="div_chart"></div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                {{ gc_draw(piechart, 'div_chart') }}
+            </script>
+        
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+{% endblock %}

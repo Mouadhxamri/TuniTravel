@@ -1,0 +1,209 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+
+                        <div class="card-box">
+                            <div class="dropdown pull-right">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+                            <section class="ftco-section">
+
+                                <div class="container">
+                                    <div class="row">
+                                        <section>
+
+                                            <div class="album py-5 bg-light">
+                                                <div class="container">
+                                                    <div class="sidebar-search" >
+                                                        <div class="input-group custom-search-form">
+                                                            <input    type="text" id="search" class="form-control widget_input" placeholder="Chercher..." style="width: 900px;background: white">
+                                                        </div>
+                                                        <br>
+                                                        <!-- /input-group -->
+                                                        <ul class="nav" id="side-menu">
+                                                            <li>
+                                                                <a href="#"> <span class="fa arrow"></span></a>
+                                                                <ul class="nav nav-second-level" id="entitiesNav">
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <div class="row d-flex" id="containerr">
+                                            <div id="search"></div>
+
+                                            {% for H in hotels %}
+
+                                                <div class="col-md-4 d-flex ftco-animate" id="c">
+                                                    <div class="blog-entry justify-content-end">
+                                                        <a href="#" class="block-20" style="background-image: url({{ asset('uploads/produit_image/'~H.image) }});">
+
+
+                                                        </a>
+
+
+                                                        <div class="text mt-3 float-right d-block">
+
+
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            {% endfor %}
+
+
+                                        </div>
+                            
+                            <p class="text-muted font-14 m-b-20">
+                                <table>
+                                <tr>
+                                    <td>
+                                <a href="{{ path('add') }}">
+                                    <button type="button" class="btn btn-purple btn-rounded w-md waves-effect waves-light m-b-5">Ajouter hotel</button>                            </p>
+
+                            </a>
+                                    </td>
+                                    <td>
+                                     <a href="{{ path('stat1') }}">
+                                    <button type="button" class="btn btn-green btn-rounded w-md waves-effect waves-light m-b-5">Les Statistiques</button>                            </p>
+
+                            </a>
+                                    </td>
+                                    <td>  <a href="{{ path('app_chambre_new') }}">
+                                    <button type="button" class="btn btn-warning btn-rounded w-md waves-effect waves-light" >Ajouter Chambre</button>                            </p>
+
+                            </a></td>
+                            <td>  <a href="{{ path('app_chambre_index') }}">
+                                    <button type="button" class="btn btn-info btn-rounded w-md waves-effect waves-light" >Liste Chambres</button>                            </p>
+
+                            </a></td>
+                             <td>  <a href="{{ path('lesreservationshotel') }}">
+                                    <button type="button" class="btn btn-secondary btn-rounded w-md waves-effect waves-light" >Les Réservations</button>                            </p>
+
+                            </a></td>
+                                       <td>
+
+                                    <td>  &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp  </td>
+                                    <td>
+                 
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>ref</th>
+                                    <th>nom</th>
+                                    <th>description</th>
+                                    <th>adresse</th>
+                                    <th>prix</th>
+                                    <th>Modifier</th>
+                                    <th>Supprimer</th>
+                                    <th>Detail</th>
+                                    
+                                </tr>
+                                </thead>
+                                <body>
+                                {% for p in  hotels %}
+                                    <tr>
+                                        <td>{{ p.ref }}</td>
+                                        <td>{{ p.nom }}</td>
+                                        <td>{{ p.description }}</td>
+                                        <td>{{ p.adresse }}</td>
+                                        <td>{{ p.prix }}</td>
+                                        
+
+                                       
+                                        <td><a href="/editHotel/{{ p.id }}"> <i class="fa fa-pencil"></i></a></td>
+
+                                        <td> <a href="/deletehotel/{{ p.id }}"
+                                                onclick="return confirm('Etes vous sûr de supprimer ');"><i class="fa fa-trash" style="color:#00aff0;font-size:20px"></i></td>
+                                        <td><a href="{{ path('detail',{'id':p.id}) }}"><i class="fa fa-list" style="color:#0eac5c;font-size:20px"></i> </a> </td>
+                                     
+                                    </tr>
+
+
+                                {% endfor %}
+                                </tbody>
+                            </table>
+       
+    
+    <!-- jQuery is necessary -->
+    {{ include('hotel/flashy.html.twig') }}
+     <script src="//code.jquery.com/jquery.js"></script>
+     <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+
+        jQuery(document).ready(function() {
+            var searchRequest = null;
+            $("#search").keyup(function() {
+
+
+
+                var minlength = 3;
+                var that = this;
+                var value = $(this).val(); 
+                var entitySelector = $("#entitiesNav").html('');
+                if (value.length >= minlength ) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('ajax_searchhotel') }}",
+                        data: {
+                            'q' : value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            //we need to check if the value is the same
+                            if (value==$(that).val()) {
+                                var result = JSON.parse(msg);
+
+                                $.each(result, function(key, arr) {
+                                    $.each(arr, function(id, value) {
+                                        if (key == 'hotels') {
+                                            if (id != 'error') {
+                                                x= document.getElementById("containerr");
+
+                                                entitySelector.append('<div style="display: table;width:100%;padding: 15px"><span style="text-align: center"> Nom: '+value[1]+'</span><br/><span style="text-align: center"> Description: '+value[2]+'</span><br/><a href="/detailhotel/'+id+'">'+'<img src="/uploads/produit_image/'+value[5]+'" style="width: 150px; height: 150px"/>'+'</a></div>');
+
+
+                                            } else {
+                                                entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

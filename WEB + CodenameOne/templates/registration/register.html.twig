@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <title>{% block title %}Register Now !{% endblock %}</title>
+
+    {% block stylesheets %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+
+    <link href="{{ asset('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900')}}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('css/open-iconic-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.css' )}}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.timepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	{% endblock %}
+
+  </head>
+  
+  <body>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">TuniTravel</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="{{ path('app_front') }}" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">Hotels</a></li>
+	          <li class="nav-item"><a href="destination.html" class="nav-link">Flights</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Cars</a></li>
+			  <li class="nav-item"><a href="blog.html" class="nav-link">Offers</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Reclamation</a></li>
+	          <li class="nav-item cta"><a href="{{ path('app_login') }}" class="nav-link">Sign In</a></li>
+
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+  
+    <section class="ftco-section bg-light">
+      <div class="container">
+
+
+
+        {% block body %}
+
+            <!--==============Container==================--> 
+
+        <div class="row mt-3">
+
+        <div class="col-12 col-md-12">
+        <div style="border:none;" class="mx-5 card shadow-lg">
+            
+        <div class="card-body">
+                <div class="card-title">
+                <center><h1 class="h3 mb-5 mt-3 font-weight-normal justify-content-center">Register Now !</h1></center>
+                </div>
+
+            {{ form_start(registrationForm) }}
+            <div class="mx-4">
+
+            <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form__div  mb-3">
+                    <label for="" class="blue">Last name</label>
+                    {{ form_widget(registrationForm.nomClient,{'attr':{'class':' form-control '}}) }}
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form__div mb-3">
+                    <label for="" class="blue">First name</label>
+                {{ form_widget(registrationForm.prenomClient,{'attr':{'class':' form-control '}}) }}
+                </div>
+            </div>
+
+            
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                <label  class="blue" for="exampleFormControlSelect1">NIC</label>
+                {{ form_widget(registrationForm.cin,{'attr':{'class':' form-control '}}) }}
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label class="blue" for="exampleFormControlSelect1">Birth date</label>
+                        {{ form_widget(registrationForm.dattenClient,{'attr':{'class':' form-control '}}) }}
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="form__div  mb-3">
+                        <label for="" class="blue">Phone number</label>
+                        {{ form_widget(registrationForm.numtelClient,{'attr':{'class':' form-control '}}) }}
+                
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form__div  mb-3">
+                        <label for="" class="blue">Passport number</label>
+                    {{ form_widget(registrationForm.numPassport,{'attr':{'class':' form-control '}}) }}
+            
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="form__div  mb-3">
+                        <label  for="" class="blue">Email adress</label>
+                        {{ form_widget(registrationForm.email,{'attr':{'class':' form-control '}}) }}
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form__div  mb-3">
+                        <label for="" class="blue">Password</label>
+                    {{ form_widget(registrationForm.plainPassword,{'attr':{'class':' form-control '}}) }}  
+            
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row mb-4">
+            
+                    <div class="col-12 col-md-6">
+                        <label for="" class="blue">Captcha</label>
+                        <div class="custom-file">
+                        {{ form_widget(registrationForm.captchaCode,{'attr':{'class':' form-control '}}) }}       
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 pt-2">
+                    
+                    {% set formErrors = registrationForm.vars.errors.form.getErrors(true) %}
+
+                    {% if formErrors|length %}
+                        <div class="alert alert-danger">
+                        <ul>
+
+                        {% for error in formErrors %}
+                        <li> {{ error.message }} </li>
+                        {% endfor %}
+
+                        </ul>
+                        </div>
+                    {% endif %}
+                    
+                    </div>
+
+            </div>
+        
+        <div class="row">            
+            <div class="col-12 col-md-12">       
+            <center>
+            <button class="btn btn-lg btn-primary mt-4 mb-5 " type="submit">
+                Register
+            </button>
+            </center>
+            </div>
+        </div>
+
+        {{ form_end(registrationForm) }}
+        </div>
+        </div>
+        </div>
+
+            <div class="col-0 col-md-4"></div>
+
+        </div>
+
+
+        {% endblock %}
+
+
+
+      </div>
+    </section>
+
+    <footer class="ftco-footer bg-bottom pt-5" >
+      <div class="container">
+        <div class="row ">
+          <div class="col-md">
+            <div class="ftco-footer-widget ">
+              <h2 class="ftco-heading-2">Vacation</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md">
+             <div class="ftco-footer-widget pl-5 ml-5">
+              <h2 class="ftco-heading-2">Experience</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Hotels</a></li>
+                <li><a href="#" class="py-2 d-block">Flights</a></li>
+                <li><a href="#" class="py-2 d-block">Cars</a></li>
+                <li><a href="#" class="py-2 d-block">Offers</a></li>
+                <li><a href="#" class="py-2 d-block">Reclamations</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget ">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mt-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+{% block javascripts %}
+  <script src="{{ asset('js/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
+  <script src="{{ asset('js/popper.min.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+  <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+  <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ asset('js/aos.js') }}"></script>
+  <script src="{{ asset('js/jquery.animateNumber.min.js') }}"></script>
+  <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+  <script src="{{ asset('js/scrollax.min.js') }}"></script>
+  <script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false') }}"></script>
+  <script src="{{ asset('js/google-map.js') }}"></script>
+  <script src="{{ asset('js/main.js') }}"></script>
+  {% endblock %}   
+  </body>
+</html>

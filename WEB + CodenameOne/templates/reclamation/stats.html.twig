@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statistique{% endblock %}
+
+
+
+{% block body %}
+    <div class="container">
+
+        <h1>Statistiques des reclamations </h1>
+        <div class="card-box">
+            <canvas id="categories" width="400" height="100"></canvas>
+        </div>
+        <div class="card-box">
+        <canvas id="etat" width="400" height="100"></canvas>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block javascripts %}<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+                               integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
+                               crossorigin="anonymous" ></script>
+    <script>
+        window.onload = function() {
+            let categories = document.querySelector("#categories");
+            let cateGraph = new Chart(categories,
+                {
+                    type: "pie",
+                    data: {
+                        labels: ["reclamationHotel", "reclamationVoiture", "reclamationVol"],
+                        datasets: [
+                            {
+                                label: "repartition des reclamation",
+                                data: {{ RecCount|raw }},
+                                backgroundColor: ["red", "green", "pink"]
+                            }
+                        ]
+                    },
+                    options: {
+                        legend: { display: true },
+                        title: {
+                            display: true,
+                            text: 'pourcentage des types de reclamation'
+                        }
+                    }
+
+                })
+
+            let etat = document.querySelector("#etat");
+            let etatGraph = new Chart(etat,
+                {
+                    type: "bar",
+                    data: {
+                        labels: ["reclamation traité", "reclamation non traité"],
+                        datasets: [
+                            {
+                                label: "repartion des etats",
+                                backgroundColor: ["#3e95cd", "#8e5ea2"],
+                                data: {{ typeRec|raw }}
+
+                            }
+                        ]
+                    },
+                    options: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: 'Pourcentage de reclmation traité'
+                        }
+                    }
+                }
+            )
+        }
+
+    </script>{% endblock %}
+
+
+

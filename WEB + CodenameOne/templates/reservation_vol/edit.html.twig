@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Réservation Vols{% endblock %}
+
+{% block body %}
+
+    <h1 >Modifier Reservation Vol</h1> 
+   
+<br>
+      <div style=" margin:50px ;">             
+     {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+
+                                              <div class="form-group">
+                            <label for="nom">Date Début *</label>
+
+                                {{ form_widget(form.dateDebut, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.dateDebut, {'attr': {'class': 'text-danger'}}) }}
+
+
+                            </div>
+                            <div class="form-group">
+                                <label for="nom">Date Fin*</label>
+
+                            <div class="form-group">
+                            {{ form_widget(form.dateFin, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.dateFin, {'attr': {'class': 'text-danger'}}) }}
+
+
+
+                            </div>
+                                <div class="form-group">
+
+                            <label for="nom">Nombre Passagers</label>
+
+                            {{ form_widget(form.nbrpsg, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(form.nbrpsg, {'attr': {'class': 'text-danger'}}) }}
+
+
+                                </div>
+                                <div class="form-group">
+
+                                <label for="nom">AeroComp</label>
+
+
+                            {{ form_widget(form.aerocomp, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(form.aerocomp, {'attr': {'class': 'text-danger'}}) }}
+
+                                </div>
+
+                                <label for="nom">Classe</label>
+
+
+                            {{ form_widget(form.classe, {'attr': {'class': 'form-control'}}) }}
+                                       {{ form_errors(form.classe, {'attr': {'class': 'text-danger'}}) }}
+
+                                   </div>
+                                  <div hidden style="display: none;">
+                                   <label for="idVol">IDVol</label>
+
+
+                            {{ form_widget(form.idVol, {'attr': {'class=': 'form-control', 'value': "5"}}) }}
+                                       {{ form_errors(form.idVol, {'attr': {'class': 'text-danger'}}) }}
+</div>
+<div style="display: none;">
+                                   <label for="idUser">IDU</label>
+
+
+                            {{ form_widget(form.idUser, {'attr': {'class=': 'form-control', 'value': "99"}}) }}
+                                       {{ form_errors(form.idUser, {'attr': {'class': 'text-danger'}}) }}
+</div>
+<div style="display: none;">
+                                   <label for="PrixTot">PT</label>
+
+
+                            {{ form_widget(form.prixTotal, {'attr': {'class=': 'form-control', 'value': "500"}}) }}
+                                       {{ form_errors(form.prixTotal, {'attr': {'class': 'text-danger'}}) }}
+</div>
+                                   </div>
+                                  
+                                   <div class="form-group">
+
+                              
+
+                                <div class="form-group text-right m-b-0">
+                            {{ form_widget(form.Submit, {'attr': {'class': 'btn btn-success'}}) }}
+                                    <button type="reset" class="btn btn-secondary ">Reset
+                                    </button>
+
+                            </div>
+                                <a class="btn btn-light" href="{{ path('app_reservation_vol_index') }}">Retour à la liste</a>
+
+
+                                    {{form_end(form)}}
+                                    </div>
+
+
+
+    {{ include('reservation_vol/_delete_form.html.twig') }}
+    
+{% endblock %}

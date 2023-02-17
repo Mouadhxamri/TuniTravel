@@ -1,0 +1,17 @@
+{# 
+    sf4application/templates/bundles/CaptchaBundle/captcha.html.twig 
+    https://github.com/captcha-com/symfony-captcha-bundle/pull/11/commits/a7d36269a192be90e71df28669238a3f7c50a550
+#}
+{% block simple_captcha_widget %}
+    {% apply spaceless %}
+        {{ captcha_html | raw }}
+        {{ form_widget(form, { 'id': user_input_id, 'value': '' }) }}
+    {% endapply  %}
+{% endblock %}
+
+{% block captcha_widget %}
+    {% apply spaceless %}
+        {{ captcha_html | raw }}
+        {{ form_widget(form, { 'id': user_input_id, 'value': '' }) }}
+    {% endapply  %}
+{% endblock %}

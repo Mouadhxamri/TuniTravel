@@ -1,0 +1,88 @@
+{% extends 'empty.html.twig' %}
+
+{% block title %}Mes Reclamation {% endblock %}
+
+{% block body %}
+    <h1> Mes reclamations</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th>Titre</th>
+            <th>Contenu</th>
+            <th>Etat</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for reclamation in reclamations %}
+            {% if reclamation.etat == 'Non traite' %}
+            <tr>
+
+                <td>{{ reclamation.titre }}</td>
+                <td>{{ reclamation.contenu }}</td>
+                <td>{{ reclamation.etat }}</td>
+                <td>
+                    <div class="row">
+                        <a href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}" class="btn btn-sm btn-primary waves-effect waves-light btn-sm m-b-5">Modifier </a>
+
+
+                        <br>
+                        {{ include('reclamation/_delete_form.html.twig') }}
+                    </div>
+
+
+
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="6">Pas de Reclamations </td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h2> Mes reclamations archivées </h2>
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th>Titre</th>
+            <th>Contenu</th>
+            <th>Etat</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for reclamation in reclamations %}
+            {% if reclamation.etat == 'Traité' %}
+                <tr>
+
+                    <td>{{ reclamation.titre }}</td>
+                    <td>{{ reclamation.contenu }}</td>
+                    <td>{{ reclamation.etat }}</td>
+                    <td>
+                        <div>
+                            <a href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}" class="btn btn-sm btn-primary waves-effect waves-light m-b-5">details </a>
+
+
+                        </div>
+
+
+
+                    </td>
+                </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="6">Pas de Reclamations traitées</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

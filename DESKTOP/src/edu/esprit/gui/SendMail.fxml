@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="edu.esprit.gui.SendMailController">
+    <stylesheets>
+        <URL value="@mesreservationshotel.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="objetfield" layoutX="33.0" layoutY="104.0" promptText="objet" />
+      <TextField fx:id="messagefield" layoutX="33.0" layoutY="148.0" promptText="message" />
+      <TextField fx:id="mailtofield" layoutX="33.0" layoutY="64.0" promptText="chkoun" />
+      <Button fx:id="envoyerbtn" layoutX="123.0" layoutY="188.0" mnemonicParsing="false" onAction="#envoyerfct" text="envoyer" />
+   </children>
+</AnchorPane>

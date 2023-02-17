@@ -1,0 +1,190 @@
+       <!--==============Container==================--> 
+
+      <div class="container-fluid mx-auto  py-2 px-5">
+
+
+
+
+<div class=" row">
+    <div class="col-0 col-md-8">
+        <img src="back-office/img/logob.png" class="size-logo mt-0" alt="">
+    </div>
+    <div class="mt-3 col-8 col-md-3">
+
+     <p style="margin-top:13px; color:#f36100;" class=" float-right mr-5 blue align-middle" >Vous avez un compte ?</p>
+    </div>
+    <div class=" mt-3 col-4 col-md-1">
+        <a   style="background-color: #f36100; color:white;"class="float-right btn nav-link mx-2 my-1 btn-signin" href="/login"><div class="text-white">Se connecter</div></a>
+    </div>
+</div>
+
+
+<div class="row mt-3">
+
+    <div class="col-0 col-md-3">
+
+    </div>
+
+    <div class="col-12 col-md-6">
+        <div style="border:none;" class="card shadow-lg">
+    
+    <div class="card-body">
+        <div class="card-title">
+            <h1   style="color:black;"class=" blue mb-4 mt-4 text-center card-title">S'enregistrer</h1>
+        </div>
+    {{ form_start(registrationForm) }}
+    <div class="mx-4">
+
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="form__div  mb-3">
+            <label  style="color:black;" for="" class="blue">Nom</label>
+             {{ form_widget(registrationForm.nomClient,{'attr':{'class':' form-control '}}) }}
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div style="color:black;" class="form__div mb-3">
+            <label  style="color:black;" for="" class="blue">Prénom</label>
+          {{ form_widget(registrationForm.prenomClient,{'attr':{'class':' form-control '}}) }}
+        </div>
+    </div>
+
+    
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+                        <div class="form-group">
+        <label style="color:black;"  class="blue" for="exampleFormControlSelect1">CIN</label>
+         {{ form_widget(registrationForm.cin,{'attr':{'class':' form-control '}}) }}
+      </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label  style="color:black;" class="blue" for="exampleFormControlSelect1">Numéro de Téléphone</label>
+                {{ form_widget(registrationForm.numtelClient,{'attr':{'class':' form-control '}}) }}
+              </div>
+        </div>
+        
+        </div>
+
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form__div  mb-3">
+                <label  style="color:black;" for="" class="blue">Numéro du Passport</label>
+                 {{ form_widget(registrationForm.numPassport,{'attr':{'class':' form-control '}}) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form__div  mb-3">
+                <label style="color:black;" for="" class="blue">Mot de passe</label>
+              {{ form_widget(registrationForm.plainPassword, {label: 'Password'}) }}
+       
+            </div>
+        </div>
+        
+    </div>
+
+        <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="form__div  mb-3">
+                <label  style="color:black;" for="" class="blue">Datte naissance</label>
+                 {{ form_widget(registrationForm.dattenClient,{'attr':{'class':' form-control '}}) }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form__div  mb-3">
+                <label style="color:black;" for="" class="blue">Adresse Email</label>
+              {{ form_widget(registrationForm.email,{'attr':{'class':' form-control '}}) }}
+       
+            </div>
+        </div>
+        
+    </div>
+
+    <!--    <div class="row">
+
+            <div class="col-12 col-md-6">
+                <div class="form__div mb-3">
+                    <label  style="color:black;" for="" class="blue">sexe</label>
+                   {{ form_widget(registrationForm.sexe,{'attr':{'class':' form-control '}}) }}
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <label  style="color:black;" for="" class="blue">Photo de profil</label>
+                <div class="custom-file">
+                  {{ form_widget(registrationForm.imageFile,{'attr':{'class':' custom-file-input '}} ) }}
+                  <label class="custom-file-label" for="customFile">Importer une photo</label>
+                
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <label  style="color:black;" for="" class="blue">Captcha</label>
+                <div class="custom-file">
+                   {{ form_widget(registrationForm.captchaCode) }}
+                  
+                
+                </div>
+            </div>
+            
+        </div>-->
+
+
+        
+
+
+
+
+
+
+
+
+  {{ form_end(registrationForm) }}
+    </div>
+        </div>
+
+    </div>
+
+    <div class="col-0 col-md-4">
+
+    </div>
+
+
+</div>
+
+<!-- ____________________________________________________________________ -->
+
+{% extends 'empty.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<div class='row justify-content-center mb-5 mt-4'>
+<div class=' col-6'>
+
+<center><h1 class="h3 mb-5 mt-3 font-weight-normal justify-content-center">Register</h1></center>
+    {{ form_start(registrationForm) }}
+  
+        {{ form_row(registrationForm.nomClient) }}
+        {{ form_row(registrationForm.prenomClient) }}
+        {{ form_row(registrationForm.cin) }}
+        {{ form_row(registrationForm.numtelClient) }}
+        {{ form_row(registrationForm.numPassport) }}
+        {{ form_row(registrationForm.dattenClient) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+
+</div>
+</div>
+
+
+
+{% endblock %}

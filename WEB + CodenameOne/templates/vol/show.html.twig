@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vol{% endblock %}
+
+{% block body %}
+    <h1>Vol</h1>
+
+    <table class="table table-striped table-bordered">
+        <tbody>
+            
+            <tr>
+                <th>Reference</th>
+                <td>{{ vol.ref }}</td>
+            </tr>
+            <tr>
+                <th>Depart</th>
+                <td>{{ vol.depart }}</td>
+            </tr>
+            <tr>
+                <th>Destination</th>
+                <td>{{ vol.destination }}</td>
+            </tr>
+            <tr>
+                <th>Date Départ</th>
+                <td>{{ vol.dateD ? vol.dateD|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date Retour</th>
+                <td>{{ vol.dateR ? vol.dateR|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ vol.prixV }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <a class="btn btn-light" href="{{ path('app_vol_index') }}">Retour à la liste</a>
+
+    <a class="btn btn-primary btn-lg btn-block btn-danger " href="{{ path('app_vol_delete', {'idVol': vol.idVol}) }}">Supprimer</a>
+     <a class="btn  btn-lg btn-block btn-secondary " href="{{ path('app_vol_edit', {'idVol': vol.idVol}) }}">Modifier</a>
+
+  
+{% endblock %}

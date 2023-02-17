@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambre index{% endblock %}
+
+{% block body %}
+   <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="card-box">
+                            <div class="dropdown pull-right">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+                            <h4 class="m-t-0 header-title">Liste Chambres</h4>
+                            <p class="text-muted font-14 m-b-20">
+                                <table>
+                                <tr>
+                                    
+                                   
+                                       <td>
+
+                                    <td>  &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp  </td>
+                                    <td>
+                 
+                                    </td>
+                                </tr>
+                            </table>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Logement</th>
+                <th>Prix</th>
+                <th>Hotel</th>
+                <th>actions</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chambre in chambres %}
+            <tr>
+                <td>{{ chambre.id }}</td>
+                <td>{{ chambre.type }}</td>
+                <td>{{ chambre.logement }}</td>
+                <td>{{ chambre.prix }}</td> 
+                <td>{{ chambre.idhotel.nom }}</td>
+              <td>  <a href="{{ path('app_chambre_show', {'id': chambre.id}) }}"><i class="fa fa-list" style="color:#0eac5c;font-size:20px"></i></a> </td>
+              <td> <a href="{{ path('app_chambre_edit', {'id': chambre.id}) }}"><i class="fa fa-pencil"  style="color:#00aff0;font-size:20px"></i> </a> </td>
+              <td>  <a href="{{ path('app_chambre_delete', {'id': chambre.id}) }}"><i class="fa fa-trash" style="color:#00aff0;font-size:20px"></i></a> </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_chambre_new') }}">Create new</a>
+    <a href="{{ path('hotel_list') }}">Liste Hotels</a>
+    </div>
+
+                    </div
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

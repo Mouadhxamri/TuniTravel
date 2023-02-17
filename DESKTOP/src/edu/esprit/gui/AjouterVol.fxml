@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="518.0" prefWidth="996.0" style="-fx-background-color: #dbd9ff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.AjouterVolController">
+   <children>
+      <Label layoutX="46.0" layoutY="87.0" text="Ref" />
+      <Label layoutX="28.0" layoutY="171.0" text="Ville Départ" />
+      <TextField fx:id="txtref" layoutX="79.0" layoutY="83.0" />
+      <TextField fx:id="txtdep" layoutX="121.0" layoutY="167.0" />
+      <Button fx:id="bajout" layoutX="28.0" layoutY="406.0" mnemonicParsing="false" onAction="#addflight" style="-fx-background-color: #95f788; -fx-border-color: #fffff; -fx-background-radius: #ffff;" text="Ajouter Vol" />
+      <Label layoutX="28.0" layoutY="211.0" text="Ville Destination" />
+      <TextField fx:id="txtdest" layoutX="121.0" layoutY="207.0" />
+      <Label layoutX="28.0" layoutY="249.0" text="Date Départ" />
+      <DatePicker fx:id="dated" layoutX="121.0" layoutY="245.0" />
+      <Label layoutX="28.0" layoutY="288.0" text="Date Retour" />
+      <DatePicker fx:id="dater" layoutX="121.0" layoutY="284.0" />
+      <Label layoutX="28.0" layoutY="328.0" text="Prix Ticket" />
+      <TextField fx:id="txtprix" layoutX="121.0" layoutY="324.0" />
+      <TableView fx:id="table1" blendMode="DARKEN" layoutX="241.0" layoutY="122.0" onSort="#affichageVol" prefHeight="366.0" prefWidth="671.0" AnchorPane.rightAnchor="8.0">
+        <columns>
+          <TableColumn fx:id="reftab" prefWidth="59.20001220703125" text="Ref" />
+            <TableColumn fx:id="departtab" prefWidth="89.0" text="Départ" />
+            <TableColumn fx:id="destinationtab" prefWidth="141.0" text="Destination" />
+            <TableColumn fx:id="datedtab" prefWidth="140.0" text="Date Départ" />
+            <TableColumn fx:id="datertab" minWidth="0.0" prefWidth="145.0" text="Date Retour" />
+            <TableColumn fx:id="prixtab" minWidth="0.0" prefWidth="90.0" text="Prix" />
+        </columns>
+      </TableView>
+      <Button fx:id="bmodif" layoutX="117.0" layoutY="406.0" mnemonicParsing="false" onAction="#editflight" style="-fx-background-color: #f7fa69;" text="Modifier Vol" />
+      <Button fx:id="bsupp" layoutX="212.0" layoutY="406.0" mnemonicParsing="false" onAction="#delflight" style="-fx-background-color: #f74851;" text="Supprimer Vol" />
+      <Label fx:id="idv1" layoutX="399.0" layoutY="325.0" text="." visible="false" />
+      <Label layoutX="328.0" layoutY="14.0" text="Gestion Vols" textFill="#2000b1">
+         <font>
+            <Font name="HP Simplified Bold" size="41.0" />
+         </font>
+      </Label>
+      <TextField fx:id="recherchervol" layoutX="831.0" layoutY="92.0" onAction="#affichage2" promptText="Rechercher" style="-fx-background-color: #dbd9ff; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
+   </children>
+</AnchorPane>

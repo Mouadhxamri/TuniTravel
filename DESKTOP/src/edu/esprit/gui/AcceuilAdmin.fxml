@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="601.0" prefWidth="1124.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.AcceuilAdminController">
+    <stylesheets>
+        <URL value="@acceuil.css" />
+    </stylesheets>
+   <children>
+      <TabPane prefHeight="602.0" prefWidth="1125.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="Hotelpanel" onSelectionChanged="#hotelpageload" text="Gestion Hotel">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="panehotel" prefHeight="573.0" prefWidth="998.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="volpanel" onSelectionChanged="#volpageload" text="Gestion Vol">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="panevol" prefHeight="573.0" prefWidth="998.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="voiturepanel" onSelectionChanged="#voiturepageload" text="Gestion Voiture">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="panevoiture" prefHeight="573.0" prefWidth="998.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="offrepanel" onSelectionChanged="#offrepageload" text="Gestion Offre">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="paneoffre" prefHeight="573.0" prefWidth="998.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="reclamationpanel" onSelectionChanged="#reclamationpageload" text="Gestion des Réclamations">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="panereclamation" prefHeight="573.0" prefWidth="998.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="userpanel" onSelectionChanged="#userpageload" text="User">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="paneoffre11" prefHeight="573.0" prefWidth="998.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

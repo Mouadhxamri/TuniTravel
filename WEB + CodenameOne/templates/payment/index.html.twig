@@ -1,0 +1,26 @@
+{% extends 'empty-base.html.twig' %}
+
+{% block title %}Make Payment{% endblock %}
+
+{% block body %}
+    <ul class="list-group" style="margin-bottom: 10px;border-radius: 0px;border-bottom: 6px solid var(--bs-teal);border-left: 6px solid var(--bs-teal);margin-top: 10px;margin-left: 4px;">
+        <li class="list-group-item"><span class="fs-3 fw-bold text-success">Reservation Price/Unit</span>
+            <p>price</p>
+        </li>
+        
+        <li class="list-group-item"><span class="fs-3 fw-bold text-success">Total</span>
+            <p>Price total</p>
+        </li>
+    </ul>
+
+    <div class="btn-toolbar" style="margin-left: 4px;">
+        <div class="btn-group" role="group">
+            <button class="btn btn-info" type="button" style="margin-right: 12px;border-radius: 8px;"><i class="fas fa-edit"></i>Edit Reservation</button>
+            <a href="/checkout" >
+                <button class="btn btn-success" type="button" style="border-radius: 8px;"><i class="fa fa-check-circle" style="margin-right: 2px;"></i>Checkout</button>
+            </a>
+        </div>
+        <div class="btn-group" role="group"></div>
+    </div>
+
+{% endblock %}

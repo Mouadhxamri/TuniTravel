@@ -1,0 +1,87 @@
+{% extends 'empty.html.twig' %}
+
+{% block title %}Reservation {% endblock %}
+
+{% block body %}
+<div class="form-group">
+ {{ form_start(f, {attr: {novalidate: 'novalidate'}}) }}
+
+<div class="card">
+ <div class="card-body">
+        <div hidden class="form-group"     >
+                            <label for="nom">User</label>
+
+                                {{ form_widget(f.id_user, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(f.id_user, {'attr': {'class': 'text-danger'}}) }}
+
+
+                            </div>
+                            <div class="form-group" >
+                                <label for="nom">Date Début</label>
+
+                            
+                            {{ form_widget(f.date_debut) }}
+                                {{ form_errors(f.date_debut, {'attr': {'class': 'text-danger'}}) }}
+
+
+
+                            </div>
+
+                                <div class="form-group">
+
+                            <label for="nom">Date Fin</label>
+
+                            {{ form_widget(f.date_fin,) }}
+                                    {{ form_errors(f.date_fin, {'attr': {'class': 'text-danger'}}) }}
+
+
+                                </div>
+
+                                <div hidden class="form-group">
+
+                                <label for="nom">Hotel</label>
+
+
+                            {{ form_widget(f.idhotel, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(f.idhotel, {'attr': {'class': 'text-danger'}}) }}
+
+                                </div>
+                             
+                             <div class="form-group">
+                                <label for="nom">Nombre de personnes</label>
+
+
+                            {{ form_widget(f.nbrperso, {'attr': {'class': 'form-control'}}) }}
+                                       {{ form_errors(f.nbrperso, {'attr': {'class': 'text-danger'}}) }}
+
+                                   </div>
+                                   
+                             <div hidden class="form-group">
+                                <label for="nom">Id Chambre</label>
+
+
+                            {{ form_widget(f.id_chambre, {'attr': {'class': 'form-control'}}) }}
+                                       {{ form_errors(f.id_chambre, {'attr': {'class': 'text-danger'}}) }}
+
+                                   </div>
+                             <div hidden class="form-group">
+                                <label for="nom">Prix Total</label>
+
+
+                            {{ form_widget(f.prixtotal, {'attr': {'class': 'form-control'}}) }}
+                                       {{ form_errors(f.prixtotal, {'attr': {'class': 'text-danger'}}) }}
+
+                                   </div>
+
+                                <div class="form-group text-right m-b-0">
+                            {{ form_widget(f.Submit, {'attr': {'class': 'btn btn-primary waves-effect waves-light'}}) }}
+                                    
+
+                            </div>
+
+    {{form_end(f)}}
+</div>
+</div>
+</div>
+                        
+{% endblock %}

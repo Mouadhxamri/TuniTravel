@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="580.0" prefWidth="1096.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Edu.esprit.gui.FXMLController">
+   <children>
+      <Label layoutX="34.0" layoutY="75.0" text="matricule" />
+      <Label layoutX="33.0" layoutY="152.0" text="marque" />
+      <TextField fx:id="mattxt" layoutX="118.0" layoutY="71.0" />
+      <TextField fx:id="marquetxt" layoutX="118.0" layoutY="148.0" />
+      <Button fx:id="ajouterb" layoutX="660.0" layoutY="541.0" mnemonicParsing="false" onAction="#ajoutervoiture" text="ajouter" />
+      <Label layoutX="34.0" layoutY="115.0" text="modele" />
+      <TextField fx:id="modtxt" layoutX="118.0" layoutY="111.0" />
+      <Label layoutX="33.0" layoutY="198.0" text="transmission" />
+      <Label layoutX="34.0" layoutY="241.0" text="categorie" />
+      <Label layoutX="36.0" layoutY="399.0" text="capacite" />
+      <TextField fx:id="captxt" layoutX="119.0" layoutY="395.0" />
+      <Label layoutX="41.0" layoutY="438.0" text="prix" />
+      <TextField fx:id="prixtxt" layoutX="119.0" layoutY="434.0" />
+      <Button fx:id="modifierb" layoutX="744.0" layoutY="539.0" mnemonicParsing="false" onAction="#modifiervoiture" text="modifier" />
+      <Button fx:id="supprimerb" layoutX="839.0" layoutY="537.0" mnemonicParsing="false" onAction="#supprimervoiture" text="supprimer" />
+      <ComboBox fx:id="trantxt" layoutX="118.0" layoutY="194.0" prefWidth="150.0" promptText="choisir_transmission" />
+      <ComboBox fx:id="cattxt" layoutX="118.0" layoutY="237.0" prefWidth="150.0" promptText="choisir_categorie" />
+      <TableView fx:id="table1" layoutX="401.0" layoutY="69.0" onSort="#affichage" prefHeight="275.0" prefWidth="599.0">
+        <columns>
+          <TableColumn fx:id="matriculet" prefWidth="75.0" text="matricule" />
+          <TableColumn fx:id="modelet" prefWidth="75.0" text="modele" />
+            <TableColumn fx:id="marquet" prefWidth="75.0" text="marque" />
+            <TableColumn fx:id="transmissiont" prefWidth="75.0" text="transmission" />
+            <TableColumn fx:id="categoriet" prefWidth="75.0" text="categorie" />
+            <TableColumn fx:id="imaget" prefWidth="75.0" text="image" />
+            <TableColumn fx:id="capacitet" prefWidth="75.0" text="capacite" />
+            <TableColumn fx:id="prixt" prefWidth="75.0" text="prix" />
+        </columns>
+      </TableView>
+      <Label layoutX="36.0" layoutY="317.0" text="image" />
+      <Button fx:id="imageb" layoutX="118.0" layoutY="313.0" mnemonicParsing="false" onAction="#importerimage" text="Importer ima..." />
+      <ImageView fx:id="importerimage" fitHeight="89.0" fitWidth="157.0" layoutX="211.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="44.0" fitWidth="85.0" layoutX="443.0" layoutY="466.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

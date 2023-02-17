@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reponse{% endblock %}
+
+{% block body %}
+
+    <div class="card-box">
+        <h1>Details Reclamation </h1>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Titre de reclamation</th>
+                <td>{{ reclamation.titre }}</td>
+            </tr>
+            <tr >
+                <th>Contenu de reclamation</th>
+                <td>{{ reclamation.contenu }}</td>
+            </tr>
+            <tr class="bg-info text-white">
+                <th>Notre Reponse </th>
+                <td></td>
+
+            </tr>
+            <tr>
+                <th>Objet</th>
+                <td>{{ reponse.objet }}</td>
+            </tr>
+            <tr>
+                <th>Body</th>
+                <td>{{ reponse.body }}</td>
+            </tr>
+            <tr>
+                <th>Attachement</th>
+                {% if reponse.file!=null%}
+                    <td>
+                        <img src="{{ asset('uploads/files/'~reponse.file) }}">
+                    </td>
+                {% else %}
+
+                    <td colspan="6">Pas de piece jointe</td>
+                {% endif %}
+            </tr>
+            </tbody>
+        </table>
+
+
+        <a href="{{ path('app_reponse_edit', {'id': reponse.id}) }}" class="btn btn-sm btn-primary waves-effect waves-light w-md m-b-5">modifier la reponse</a>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Vol{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un Vol</h1>
+
+                                    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+
+                                    
+                            <div class="form-group">
+                            <label for="nom">Ref *</label>
+
+                                {{ form_widget(form.ref, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.ref, {'attr': {'class': 'text-danger'}}) }}
+
+
+                            </div>
+                            <div class="form-group">
+                                <label for="nom">Depart*</label>
+
+                            <div class="form-group">
+                            {{ form_widget(form.depart, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.depart, {'attr': {'class': 'text-danger'}}) }}
+
+
+
+                            </div>
+                                <div class="form-group">
+
+                            <label for="nom">Destination*</label>
+
+                            {{ form_widget(form.destination, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(form.destination, {'attr': {'class': 'text-danger'}}) }}
+
+
+                                </div>
+                                <div class="form-group">
+
+                                <label for="nom">Date Depart</label>
+
+
+                            {{ form_widget(form.dateD, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(form.dateD, {'attr': {'class': 'text-danger'}}) }}
+
+                                </div>
+
+                                <label for="nom">Date Retour</label>
+
+
+                            {{ form_widget(form.dateR, {'attr': {'class': 'form-control'}}) }}
+                                       {{ form_errors(form.dateR, {'attr': {'class': 'text-danger'}}) }}
+
+                                   </div>
+                                  <div class="form-group">
+
+                                <label for="nom">Prix</label>
+
+
+                            {{ form_widget(form.prixV, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(form.prixV, {'attr': {'class': 'text-danger'}}) }}
+
+                                </div>
+
+                                   <div class="form-group">
+
+                              
+
+                                <div class="form-group text-right m-b-0">
+                            {{ form_widget(form.Submit, {'attr': {'class': 'btn btn-success'}}) }}
+                                    <button type="reset" class="btn btn-secondary ">Reset
+                                    </button>
+
+                            </div>
+
+                                    {{form_end(form)}}
+{% endblock %}

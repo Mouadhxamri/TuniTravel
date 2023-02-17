@@ -1,0 +1,9 @@
+<div class="container mt-4">
+{{ form_start(form) }}
+
+{{ form_widget(form) }}
+    <div class="p-t-10 pull-right">
+    <button class="btn btn-sm btn-primary waves-effect waves-light">{{ button_label|default('envoyer') }}</button>
+    </div>
+{{ form_end(form) }}
+</div>

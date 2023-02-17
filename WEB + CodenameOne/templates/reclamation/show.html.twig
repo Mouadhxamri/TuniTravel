@@ -1,0 +1,43 @@
+{% extends 'empty.html.twig' %}
+
+{% block title %}Reclamation{% endblock %}
+
+{% block body %}
+    <h1>Details Reclamation</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Titre</th>
+                <td>{{ reclamation.titre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ reclamation.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ reclamation.etat }}</td>
+            </tr>
+            <tr>
+                <th>Reponse</th>
+                <td>{{ reponse.body }}</td>
+            </tr>
+
+            <tr>
+                <th>Piece jointe</th>
+                {% if reponse.file!=null%}
+                <td>
+                    <img src="{{ asset('uploads/files/'~reponse.file) }}">
+                </td>
+                {% else %}
+
+                <td colspan="6">Pas de piece jointe</td>
+                {% endif %}
+            </tr>
+
+        </tbody>
+    </table>
+
+{% endblock %}

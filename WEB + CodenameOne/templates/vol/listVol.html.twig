@@ -1,0 +1,147 @@
+{% extends 'empty.html.twig' %}
+
+{% block title %}Réserver un Vol{% endblock %}
+
+{% block body %}
+ <section class="ftco-section">
+
+                                <div class="container">
+                                    <div class="row">
+                                        <section>
+
+                                            <div class="album py-5 bg-light">
+                                                <div class="container">
+                                                    <div class="sidebar-search" >
+                                                        <div class="input-group custom-search-form">
+                                                            <input    type="text" id="search" class="form-control widget_input" placeholder="Chercher..." style="width: 900px;background: white">
+                                                        </div>
+                                                        <br>
+                                                        <!-- /input-group -->
+                                                        <ul class="nav" id="side-menu">
+                                                            <li>
+                                                                <a href="#"> <span class="fa arrow"></span></a>
+                                                                <ul class="nav nav-second-level" id="entitiesNav">
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <div class="row d-flex" id="containerr">
+                                            <div id="search"></div>
+
+                                            {% for V in vols %}
+
+                                                <div class="col-md-4 d-flex ftco-animate" id="c">
+                                                    <div class="blog-entry justify-content-end">
+                                                       
+
+                                                        <div class="text mt-3 float-right d-block">
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            {% endfor %}
+
+
+                                        </div>
+                                                       
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                
+                <th>Ref</th>
+                <th>Depart</th>
+                <th>Destination</th>
+                <th>Date Depart</th>
+                <th>Date Retour</th>
+                <th>Prix</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for vol in vols %}
+            <tr>
+               
+                <td>{{ vol.ref }}</td>
+                <td>{{ vol.depart }}</td>
+                <td>{{ vol.destination }}</td>
+                <td>{{ vol.dateD ? vol.dateD|date('Y-m-d') : '' }}</td>
+                <td>{{ vol.dateR ? vol.dateR|date('Y-m-d') : '' }}</td>
+                <td>{{ vol.prixV }}</td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('app_reservation_vol_new', {'idVol': vol.idVol}) }}">
+                     Réserver</a></td>
+                   
+                 
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ 
+
+
+  <script src="//code.jquery.com/jquery.js"></script>
+     <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+
+        jQuery(document).ready(function() {
+            var searchRequest = null;
+            $("#search").keyup(function() {
+
+
+
+                var minlength = 3;
+                var that = this;
+                var value = $(this).val(); 
+                var entitySelector = $("#entitiesNav").html('');
+                if (value.length >= minlength ) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('ajax_search') }}",
+                        data: {
+                            'q' : value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            //we need to check if the value is the same
+                            if (value==$(that).val()) {
+                                var result = JSON.parse(msg);
+
+                                $.each(result, function(key, arr) {
+                                    $.each(arr, function(id, value) {
+                                        if (key == 'vols') {
+                                            if (id != 'error') {
+                                                x= document.getElementById("entitiesNav");
+
+                                                entitySelector.append('<div style="display: table;width:100%;padding: 15px"><span style="text-align: center"> Ref: '+value[0]+'</span><br/><a href="/reservation/vol/new/'+id+'"><span style="text-align: center"> Départ: '+value[1]+'</span><span style="text-align: center"> Destination: '+value[2]+'</span><br/></div>');
+
+
+                                            } else {
+                                                entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+                                           
+
+{% endblock %}

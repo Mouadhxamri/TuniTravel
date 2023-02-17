@@ -1,0 +1,26 @@
+{% extends 'empty-base.html.twig' %}
+
+{% block body %}
+    <div class="container py-4 py-xl-5">
+        <div class="row gy-4 gy-md-0">
+            <div class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-center" style="border-bottom-width: 6px;">
+                <div style="max-width: 350px;">
+                    <h2 class="text-uppercase fw-bold" style="border-bottom-style: dotted;border-bottom-color: var(--bs-gray-900);">Thanks for your order!<br></h2>
+                    <p class="my-3" style="border-bottom-width: 5px;border-bottom-style: solid;">Payment Success!<br>We appreciate your cars reservation, we wish that you reach the rank you want!<br>reservation service<br></p>
+                    <a class="btn btn-primary btn-lg me-2" role="button" href="/rreservation/voiture/list">Back to menu</a>
+
+                    <a href="{{ path('app_payment_pdf') }}">
+                    <button class="btn btn-primary btn-lg me-2" type="button" style="border-color: var(--bs-teal);background: var(--bs-success);">
+                        <i class="far fa-file-pdf" style="margin-right: 7px;"></i>Print Recipe</button>
+                    </a>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-xl-5 m-xl-5"><img class="img-thumbnail img-fluid w-100 fit-cover" data-bss-hover-animate="swing" style="min-height: 300px;" src="{{ asset("assets/images/golf7.png")}}"></div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+{% endblock %}

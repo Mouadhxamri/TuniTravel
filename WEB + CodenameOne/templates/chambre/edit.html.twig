@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Chambre{% endblock %}
+
+{% block body %}
+    <div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-md-12"  style="display: flex; justify-content: center;align-items:center;width: 100%" >
+                <div class="card-box">
+                    <div class="dropdown pull-right">
+
+                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                            <i class="mdi mdi-dots-vertical"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                        </div>
+                    </div>
+                    <h4 class="header-title m-t-0 m-b-30">Modifier Chambre</h4>
+
+  {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+<div class="card">
+ <div class="card-body">
+      
+
+                    <div class="form-group">
+                        <label for="nom">Type</label>
+
+                        {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.type, {'attr': {'class': 'text-danger'}}) }}
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="nom">logement</label>
+
+                        <div class="form-group">
+                            {{ form_widget(form.logement, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_errors(form.logement, {'attr': {'class': 'text-danger'}}) }}
+
+
+                        </div>
+                        
+                        <div class="form-group">
+
+                            <label for="nom">prix</label>
+
+                            {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_errors(form.prix, {'attr': {'class': 'text-danger'}}) }}
+
+
+                        </div>
+                       
+                       
+                        {{form_end(form)}}
+<button class="btn btn-success">{{ button_label|default('Save') }}</button> 
+      </div>
+        </div>
+        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

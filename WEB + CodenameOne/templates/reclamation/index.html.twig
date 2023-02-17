@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reclamation index{% endblock %}
+
+{% block body %}
+    <h1>Liste des reclamations </h1>
+    <div class="card-box">
+        <table class="table">
+            <thead>
+            <tr>
+
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Etat</th>
+                <th>Date de depot</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for reclamation in reclamations %}
+
+                <tr>
+
+                    <td>{{ reclamation.titre }}</td>
+                    <td>{{ reclamation.contenu }}</td>
+                    <td>{{ reclamation.etat }}</td>
+                    <td>{{ reclamation.datecreation.format('d/m/Y') }}</td>
+                {% if reclamation.etat == 'Non traite' %}
+                    <td>
+                        <a href="{{ path('app_reponse_new', {'id': reclamation.id}) }}" class="btn btn-sm btn-primary waves-effect waves-light">Traiter reclamation</a>
+                    </td>
+                {% else %}
+                    <td>
+                        <a href="{{ path('app_reclamation_showD', {'id': reclamation.id}) }}" class="btn btn-sm btn-primary waves-effect waves-light">Plus de Details</a>
+                    </td>
+                {% endif %}
+                    </tr>
+
+                {% else %}
+                <tr>
+                    <td colspan="6">Pas de Reclamations </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="fc-button-group">{{ knp_pagination_render(reclamations) }}</div>
+
+    </div>
+
+{% endblock %}

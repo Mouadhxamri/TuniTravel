@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}Statistiques Vols{% endblock %}
+
+{% block body %}
+<div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="card-box">
+                            <div class="dropdown pull-right">
+    <div class="app-content">
+        <div class="side-app">
+            <div class="page-header">
+
+            </div>
+            <div id="div_chart"></div>
+            <div id="div_chart1"></div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                {{ gc_draw([piechart,piechart1],['div_chart','div_chart1']) }}
+                
+            </script>
+          
+        </div>
+        <a href="{{ path('app_vol_index') }}">
+                                    <button type="button" class="btn btn-purple btn-rounded w-md waves-effect waves-light m-b-5">Retour</button>                            </p>
+
+                            </a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+{% endblock %}

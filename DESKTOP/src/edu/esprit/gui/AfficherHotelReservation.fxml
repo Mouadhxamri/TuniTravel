@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" blendMode="DARKEN" prefHeight="715.0" prefWidth="1200.0" style="-fx-background-color: #dbd9ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.AfficherHotelReservationController">
+   <children>
+      <Label fx:id="labelrefhotel" layoutX="619.0" layoutY="209.0" prefHeight="17.0" prefWidth="73.0" />
+      <TabPane blendMode="DARKEN" layoutX="7.0" prefHeight="676.0" prefWidth="1163.0" style="-fx-background-color: #dbd9ff;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab style="-fx-background-color: #dbd9ff;" text="Réserver un Hotel">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="434.0" prefWidth="688.0">
+                     <children>
+                        <Label layoutX="460.0" layoutY="449.0" text="Logement :" />
+                        <Label layoutX="39.0" layoutY="324.0" prefHeight="17.0" prefWidth="76.0" text="Date Arrivé" />
+                        <DatePicker fx:id="datearriv" layoutX="115.0" layoutY="320.0" />
+                        <DatePicker fx:id="datefinres" layoutX="115.0" layoutY="364.0" />
+                        <Label layoutX="39.0" layoutY="368.0" prefHeight="17.0" prefWidth="62.0" text="Date Fin" />
+                        <Label layoutX="328.0" layoutY="565.0" text="Prix Total :" textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="39.0" layoutY="410.0" text="Nombre de personnes :" />
+                        <Label layoutX="37.0" layoutY="453.0" text="Nombre de chambres:" />
+                        <Label layoutX="678.0" layoutY="451.0" text="Prix  :" visible="false" />
+                        <Spinner fx:id="nbrpersres" layoutX="174.0" layoutY="406.0" prefHeight="25.0" prefWidth="62.0" />
+                        <Spinner fx:id="nbrchres" layoutX="174.0" layoutY="449.0" prefHeight="25.0" prefWidth="62.0" />
+                        <Label layoutX="346.0" layoutY="322.0" text="Nom Hotel :" />
+                        <Label layoutX="346.0" layoutY="370.0" text="Ville :" />
+                        <Button fx:id="confirmerbtn" layoutX="686.0" layoutY="580.0" mnemonicParsing="false" onAction="#confirmerreservationfct" text="Confirmer " />
+                        <Label fx:id="prixvalue" layoutX="733.0" layoutY="454.0" visible="false">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="754.0" layoutY="453.0" prefHeight="17.0" prefWidth="35.0" text="TND" visible="false">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="logecombo" layoutX="532.0" layoutY="446.0" prefHeight="25.0" prefWidth="124.0" />
+                        <Label fx:id="prixtotalvalue" layoutX="171.0" layoutY="570.0" prefHeight="17.0" prefWidth="35.0" />
+                        <Label fx:id="labelnomhotel" layoutX="420.0" layoutY="322.0" prefHeight="17.0" prefWidth="154.0" />
+                        <Label fx:id="labenvillehotel" layoutX="383.0" layoutY="370.0" prefHeight="17.0" prefWidth="134.0" />
+                        <ComboBox fx:id="logecombo1" layoutX="531.0" layoutY="481.0" prefHeight="25.0" prefWidth="125.0" visible="false" />
+                        <Label fx:id="nnn" layoutX="432.0" layoutY="570.0" prefHeight="20.0" prefWidth="73.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
+                        <ComboBox fx:id="logecombo2" layoutX="531.0" layoutY="515.0" prefHeight="25.0" prefWidth="125.0" visible="false" />
+                        <Label layoutX="246.0" layoutY="454.0" text="Type chambres :" />
+                        <ComboBox fx:id="combotyres" layoutX="339.0" layoutY="449.0" prefHeight="25.0" prefWidth="107.0" />
+                        <ComboBox fx:id="combotyres1" layoutX="341.0" layoutY="489.0" prefHeight="25.0" prefWidth="107.0" visible="false" />
+                        <ComboBox fx:id="combotyres2" layoutX="341.0" layoutY="528.0" prefHeight="25.0" prefWidth="107.0" visible="false" />
+                        <TableView fx:id="table1" blendMode="DARKEN" cacheShape="false" layoutX="26.0" layoutY="10.0" onSort="#affichageres" prefHeight="290.0" prefWidth="1034.0">
+                           <columns>
+                              <TableColumn fx:id="tableimage" prefWidth="280.00009536743164" text="Image" />
+                              <TableColumn fx:id="tablenom" minWidth="0.0" prefWidth="168.79995727539062" text="Nom" />
+                              <TableColumn fx:id="tabledescription" prefWidth="203.99990844726562" text="Description" />
+                              <TableColumn fx:id="tableville" prefWidth="200.800048828125" text="Ville" />
+                              <TableColumn fx:id="tableprix1" prefWidth="155.7333984375" text="Prix" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="mailbtn" layoutX="70.0" layoutY="568.0" mnemonicParsing="false" onAction="#mailfct" text="Button" visible="false" />
+                        <Label fx:id="pricetotal" layoutX="503.0" layoutY="356.0" text="Label" />
+                        <Button fx:id="pdf" layoutX="70.0" layoutY="587.0" mnemonicParsing="false" onAction="#pdfextract" text="pdf" visible="false" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="datefinres2" style="-fx-background-color: #dbd9ff;" text="Mes Réservations">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="table2" blendMode="DARKEN" layoutX="56.0" layoutY="22.0" onSort="#affichage2" prefHeight="263.0" prefWidth="991.0">
+                          <columns>
+                            <TableColumn fx:id="hoteltab2" minWidth="0.0" prefWidth="0.0" text="Hotel" />
+                            <TableColumn fx:id="datedebtab2" prefWidth="120.0" text="Date Début" />
+                              <TableColumn fx:id="datefintab2" prefWidth="104.0" text="Date Fin" />
+                              <TableColumn fx:id="nombreperstab2" prefWidth="152.0" text="Nombre de personnes" />
+                              <TableColumn fx:id="nombrechtab2" prefWidth="195.0" text="Nombre de chambres" />
+                              <TableColumn fx:id="typechtab2" prefWidth="284.0" text="Type chambres et logement" />
+                              <TableColumn fx:id="prixtab2" prefWidth="126.6666259765625" text="Prix " />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="53.0" layoutY="315.0" text="Date Arrivée" />
+                        <Label layoutX="53.0" layoutY="373.0" text="Date fin" />
+                        <Label layoutX="53.0" layoutY="421.0" text="Nombres de personnes" />
+                        <Label layoutX="46.0" layoutY="475.0" text="Nombres de chambres" />
+                        <Label layoutX="259.0" layoutY="475.0" text="Type chambres:" />
+                        <Label layoutX="524.0" layoutY="475.0" text="Logement" />
+                        <Label layoutX="773.0" layoutY="475.0" text="Prix :" />
+                        <DatePicker fx:id="datearriv2" layoutX="134.0" layoutY="311.0" />
+                        <DatePicker fx:id="datefin2" layoutX="134.0" layoutY="369.0" />
+                        <ComboBox fx:id="combotyrestab2" layoutX="357.0" layoutY="471.0" prefHeight="25.0" prefWidth="132.0" />
+                        <ComboBox fx:id="logecombotab2" layoutX="599.0" layoutY="471.0" prefHeight="25.0" prefWidth="130.0" />
+                        <ComboBox fx:id="logecombo1tab2" layoutX="599.0" layoutY="512.0" prefHeight="25.0" prefWidth="130.0" visible="false" />
+                        <ComboBox fx:id="logecombo2tab2" layoutX="599.0" layoutY="555.0" prefHeight="25.0" prefWidth="130.0" visible="false" />
+                        <ComboBox fx:id="combotyres1tab2" layoutX="357.0" layoutY="512.0" prefHeight="25.0" prefWidth="132.0" visible="false" />
+                        <ComboBox fx:id="combotyres2tab2" layoutX="357.0" layoutY="555.0" prefHeight="25.0" prefWidth="132.0" visible="false" />
+                        <Button fx:id="annulerresbtn" layoutX="879.0" layoutY="312.0" mnemonicParsing="false" onAction="#annulerres" text="Annuler Réservation" />
+                        <Button fx:id="modifierresbtn" layoutX="601.0" layoutY="314.0" mnemonicParsing="false" onAction="#modifierres" text="Modifier Réservation" />
+                        <Spinner fx:id="nbrpersres2" layoutX="193.0" layoutY="417.0" prefHeight="25.0" prefWidth="56.0" />
+                        <Spinner fx:id="nbrchres2" layoutX="193.0" layoutY="471.0" prefHeight="25.0" prefWidth="52.0" />
+                        <Label fx:id="labelnomhotel2" layoutX="445.0" layoutY="327.0" text="Label" />
+                        <Label layoutX="368.0" layoutY="327.0" text="Hotel Choisi:" />
+                        <Label fx:id="labelrefhotel2" layoutX="385.0" layoutY="394.0" prefHeight="17.0" prefWidth="73.0" text="Label" visible="false" />
+                        <Label fx:id="prixvalue2" layoutX="811.0" layoutY="475.0" prefHeight="17.0" prefWidth="47.0" />
+                        <Label fx:id="prixtotalvalue2" layoutX="599.0" layoutY="602.0" prefHeight="17.0" prefWidth="50.0" visible="false" />
+                        <Label fx:id="labelreshotel2" layoutX="500.0" layoutY="394.0" text="Label" visible="false" />
+                        <Label layoutX="538.0" layoutY="602.0" text="Prix Total:" visible="false" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

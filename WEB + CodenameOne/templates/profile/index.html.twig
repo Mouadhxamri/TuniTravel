@@ -1,0 +1,535 @@
+{% extends 'empty.html.twig' %}
+
+
+{% block title %}Profil de   {{ app.user.prenomClient }} {{ app.user.nomClient }}{% endblock %}
+{% block stylesheet %}
+    <link href="{{ asset('https://fonts.googleapis.com/icon?family=Material+Icons')}}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
+
+<!--=======================1=============================-->
+
+<!--________________Debut Row 1________________-->
+
+    <div class="row mx-auto mt-5">
+
+    <!--_____Debut Col 1_____-->
+
+    <!--_____Informations generales_____-->
+
+
+      <div class="col-md-7">
+        <div style="border:none;" class="card shadow px-4 mb-3">
+          <div class="card-body">
+            <div class="row">
+             
+                <div class="col-md-12 ">
+
+                    <div class=" my-3 mb-3">
+                        <div class="row ">
+                            <h5   style="color:black;" class ="col-md-11 title__col"> General informations </h5>
+                          
+                            <div class=" mt-2 col-md-1">
+                                <!--11111-->
+                                <span value="for1">
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <br/>
+
+                </div>
+
+                <div class=" col-12 col-md-4">
+
+                    <h6 class="mb-0 pb-2 ">First name</h6>
+
+                </div>
+
+                <div class=" col-10 col-md-7 text-secondary">
+
+                    <h6 class="mb-0 pb-2">{{ app.user.prenomClient }}</h6>
+
+                </div>
+
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <h6 class="mb-0 pb-2">Last name</h6>
+              </div>
+              <div class=" col-10 col-md-7 text-secondary">
+            <h6 class="mb-0 pb-2 ">{{ app.user.nomClient }}</h6>
+              </div>
+
+
+
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-4">
+                <h6 class="mb-0 pb-2">Birthdate </h6>
+              </div>
+              <div class="col-md-7 text-secondary">
+                <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                <h6 class="mb-0 pb-2 ">{{ app.user.dattenClient ? app.user.dattenClient|date('Y-m-d') : '' }}</h6>
+              </div>
+             
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-4">
+                <h6 class="mb-0 pb-2">NIC</h6>
+              </div>
+              <div class="col-md-7 text-secondary">
+                 <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                <h6 class="mb-0 pb-2 ">{{ app.user.CIN }}</h6>
+              </div>
+            </div>
+
+            <hr>
+            <div class="row">
+              <div class="col-md-4">
+                <h6 class="mb-0 pb-2">Passport number</h6>
+              </div>
+              <div class="col-md-7 text-secondary">
+              <h6 class="mb-0 pb-2 ">{{ app.user.numPassport }}</h6>
+                 <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+              </div>
+            </div>
+
+            <hr>
+            <div class="row">
+              <div class="col-md-4">
+                <h6 class="mb-0 pb-2">Password</h6>
+              </div>
+              <div class="col-md-7 text-secondary">
+                 <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                 <h6 class="mb-0 pb-2 ">*********</h6>
+              </div>
+
+                <span value="for2">
+                <div class="col-1 col-md-1 d-xl-inline-flex" >
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                
+                </div>
+            </div>
+
+
+
+
+        </br>
+            </div>
+          </div>
+        </div>
+<!--_____Fin information generales_____-->
+
+
+
+<!--__________Formulaires__________-->
+<!--1: Nom et prenom-->
+<div>
+  <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+
+
+</div>
+	<div class=" col-md-5 for2" style="display: none;">
+
+        <div style="border:none;" class="card shadow px-3 mb-3">
+              
+        <div class="card-body">
+        <div class="row">
+
+
+        <div class="col-md-12 ">
+                 
+          </br>
+
+      {{ form_start(passwordform) }}
+
+          <!-- start-->
+            <div class="form ">
+            
+
+
+                    <div class="form__div ">
+
+                        <div class=" ">
+                        <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                        {{ form_label(passwordform.password, 'Password' )}}
+                        </div>
+
+                        <div class="mb-1">
+                        <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                        {{ form_widget(passwordform.password,{'attr':{'class':' form-control '}} ) }}
+                        </div>
+
+                    </div>
+
+            
+                <center><input type="submit" name="" value="Submit" class="btn btn-lg btn-primary mt-2 mb-3"></center>
+    
+            </div>  
+            <!-- End-->
+      {{ form_end(passwordform) }}
+
+        </div>
+        
+
+        </div>
+        </div>
+
+        </div>
+    </div>
+
+
+<!--______Fin fomulaire______-->
+
+
+
+<!--__________Formulaires__________-->
+<!--1: Nom et prenom-->
+<div>
+  <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+{{ form_start(form) }}
+
+</div>
+	<div class=" col-md-5 for1" style="display: none;">
+
+        <div style="border:none;" class="card shadow px-3 mb-2">
+              
+        <div class="card-body">
+        <div class="row">
+
+
+        <div class="col-md-12 ">
+                 
+          </br>
+
+
+
+          <!-- start-->
+            <div class="form">
+            
+                    <div class="form__div ">
+
+                        <div class=" ">
+                        <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                        {{ form_label(form.prenomClient, 'First name' )}}
+                        </div>
+
+                        <div class="mb-1">
+                        <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                        {{ form_widget(form.prenomClient,{'attr':{'class':' form-control '}} ) }}
+                        </div>
+
+                    </div>
+
+                    <div class="form__div mb-2">
+                        <div class=" ">
+                            <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                            {{ form_label(form.nomClient, 'Last name' )}}
+                        </div>
+                        <div class="mb-1">
+                            <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                            {{ form_widget(form.nomClient,{'attr':{'class':' form-control '}} ) }}
+                        </div>
+                    
+                    </div>
+
+                    <div class="form__div mb-2">
+                        <div class=" ">
+                            <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                            {{ form_label(form.dattenClient, 'Birthdate' )}}
+                        </div>
+                        <div class="mb-1">
+                            <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                            {{ form_widget(form.dattenClient,{'attr':{'class':' form-control '}} ) }}
+                        </div>
+                    
+                    </div>
+
+                    <div class="form__div mb-2">
+                        <div class=" ">
+                            <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                            {{ form_label(form.cin, 'NIC' )}}
+                        </div>
+                        <div class="mb-1">
+                            <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                            {{ form_widget(form.cin,{'attr':{'class':' form-control '}} ) }}
+                        </div>
+                    
+                    </div>
+
+                    <div class="form__div mb-2">
+                        <div class=" ">
+                            <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                            {{ form_label(form.numPassport, 'Passport number' )}}
+                        </div>
+                        <div class="mb-1">
+                            <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                            {{ form_widget(form.numPassport,{'attr':{'class':' form-control '}} ) }}
+                        </div>
+                    
+                    </div>
+                <center>
+                <input type="submit" name="" value="Valider" class="btn btn-lg btn-primary mt-2 mb-4">
+                </center>
+             
+            </div>  
+            <!-- End-->
+      
+
+        </div>
+        
+
+        </div>
+        </div>
+
+        </div>
+    </div>
+
+ {{ form_end(form) }}
+
+<!--______Fin fomulaire______-->
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+<!--________________Fin Row 2________________-->
+
+
+
+
+<!--=======================3============================-->
+
+
+
+
+<div class="row mx-auto">
+
+        <div class="col-md-7 ">
+            <div style="border:none;" class="card shadow px-3 mb-5">
+              <div class="card-body">
+                <div class="row">
+                  
+                    <div class="col-md-12">
+
+                      <div class=" my-3 mb-4">
+                        <div class="row ">
+                        <h5  style="color:black;" class ="col-md-11 title__col"> Contact informations </h5>
+
+                            <div class=" mt-2 col-md-1">
+                                <!--3333333-->
+                                <span value="for3">
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </span>
+                            </div>
+
+                      </div>
+                      
+                      </div>
+                    
+                      <br/>
+                    
+                  </div>
+
+                  <div class="col-12 col-md-4">
+    
+                    <h6 class="mb-0">Email adress</h6>
+                  </div>
+                  <div class="col-10 col-md-7 text-secondary">
+                    <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                    <h6 class="mb-0 pb-2 ">{{ app.user.email }}</h6>
+                  </div>
+              <!--333333333-->  
+                <span class="col-1 col-md-1 " value="for3">
+                    <a  class="link__icon">
+                    <i class='bx bxs-chevron-right gp__icon'></i></a>
+                    </span>
+
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-12 col-md-4">
+                    <h6 class="mb-0">Phone number</h6>
+                  </div>
+                  <div class="col-10 col-md-7 text-secondary">
+                    <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                    <h6 class="mb-0 pb-2 ">{{ app.user.numtelClient }}</h6>
+                  </div>
+              <!--44444444-->
+                  <span class="col-1 col-md-1 " value="for3">
+                    <a  class="link__icon">
+                    <i class='bx bxs-chevron-right gp__icon'></i></a>
+                    </span>
+
+                </div>
+                
+                </div>
+              </div>
+            </div>
+
+
+    <!--Formulaire 2 : coordonnées-->
+
+
+
+    <div class="col-md-5 for3" style="display: none;">
+
+      <div style="border:none;" class="card shadow px-3">
+        
+        <div class="card-body">
+          <div class="row">
+          <div class="col-md-12">
+          
+{{ form_start(emailform) }}           
+              
+                  <br/> 
+                  <div class="form ">
+              
+                    <div class="form__div ">
+                            <div class="">
+                                <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                                {{ form_label(emailform.email, 'Email adress' )}}
+                            </div>
+                            <div class="mb-1">
+                                <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                                {{ form_widget(emailform.email,{'attr':{'class':' form-control '}} ) }}
+                            </div>
+                    </div>
+
+                    <div class="form__div mb-2">
+                        <div class=" ">
+                            <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                            {{ form_label(emailform.numtelClient, 'Phone number' )}}
+                        </div>
+                        <div class="mb-1">
+                            <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+                            {{ form_widget(emailform.numtelClient,{'attr':{'class':' form-control '}} ) }}
+                        </div>
+                    
+                    </div>
+
+
+
+                </div>
+                <center>
+                <input type="submit" name="" value="Valider" class="btn btn-lg btn-primary mt-2 mb-4">
+                </center>
+
+    </div>
+  </div>
+
+          </div>
+        </div>
+      </div>
+
+
+{{ form_end(emailform) }}
+
+
+
+
+      <div class="col-md-4 for4" style="display: none;">
+
+        <div class="card px-4 mb-3">
+          <div class="card-body">
+
+            <div class="row">
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+<!--=======================4=============================-->
+
+
+                </div>
+
+            </div>
+
+
+          </div>
+       
+          </div>
+        </div>
+     
+      </div>
+	</div>
+ 
+   <!--       hereeeeeeeeeeeeeeerrrrrrrrrrrrrrrreeee       -->
+      
+        <script src="{{ asset('assets/js/main.js') }} "></script>  
+        <script src="{{ asset('assets/js/mainSH.js') }} "></script> 
+        <script src="{{ asset('assets/js/upload.js') }} "></script> 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script>
+    					// jQuery functions to show and hide divisions
+                        $(document).ready(function () {
+			
+            $('span').click(function () {
+                var list = [  'for1', 'for2' ,'for3', 'for4'];
+                var inputValue = $(this).attr("value");
+                $("." + inputValue).toggle();
+                for (l in list){
+                    
+                    if (list[l]!=$(this).attr("value")){
+                        if( $("." + list[l]).css('display') != 'none') {
+                            $("." + list[l]).toggle();
+                        }
+                        
+                    }
+                }
+                
+            });
+            
+        });
+</script>
+                <style>
+.form__button_supp{
+  display: block;
+  margin-left: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 0.9rem;
+  padding: 0.2rem;
+  outline: none;
+  background-color: #FDEAE4;
+  color: #FF4914;
+  font-size: var(--normal-font-size);
+  border-radius: .2rem;
+  cursor: pointer;
+  transition: .3s;
+  border: 0.2px solid #FF4914;
+}
+.form__button_supp:hover{
+  background-color: #FF4914;
+  color: #fff;
+  border: 0.2px solid #FF4914;
+}
+</style>
+{% endblock %}

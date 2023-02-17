@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hotels{% endblock %}
+ 
+{% block body %}
+<div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="card-box">
+                            <div class="dropdown pull-right">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+                            
+                            
+                            <p class="text-muted font-14 m-b-20">
+                                <table>
+                                <tr>
+                                    <td>
+                                <a href="{{ path('add') }}">
+                                    <button type="button" class="btn btn-purple btn-rounded w-md waves-effect waves-light m-b-5">Ajouter hotel</button>                            </p>
+
+                            </a>
+                                    </td>
+                                    <td>
+                                     <a href="{{ path('stat') }}">
+                                    <button type="button" class="btn btn-green btn-rounded w-md waves-effect waves-light m-b-5">Les Statistiques</button>                            </p>
+
+                            </a>
+                                    </td>
+                                    <td>  <a href="{{ path('app_chambre_new') }}">
+                                    <button type="button" class="btn btn-warning btn-rounded w-md waves-effect waves-light" >Ajouter Chambre</button>                            </p>
+
+                            </a></td>
+                            <td>  <a href="{{ path('app_chambre_index') }}">
+                                    <button type="button" class="btn btn-info btn-rounded w-md waves-effect waves-light" >Liste Chambres</button>                            </p>
+
+                            </a></td>
+                             <td>  <a href="{{ path('hotel_list') }}">
+                                    <button type="button" class="btn btn-secondary btn-rounded w-md waves-effect waves-light" >Les Hotels</button>                            </p>
+
+                            </a></td>
+                                       <td>
+
+                                    <td>  &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp  </td>
+                                    <td>
+                 
+                                    </td>
+                                </tr>
+    <table class="table">
+        
+        <tbody>
+         <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Date Début</th>
+                                    <th>Date Fin</th>
+                                    <th>Nombre Personnes</th>
+                                    <th>Prix</th>
+                            
+                                    <th>Annuler</th>
+                                    
+                                   
+                                </tr>
+                                </thead>
+                                <body>
+                                {% for p in  reservationhotels %}
+                                    <tr>
+                                        <td>12</td>
+                                        <td>{{ p.DateDebut|date('d-m-Y') }}</td>
+                                        <td>{{ p.DateFin|date('d-m-Y') }}</td>
+                                         
+                                        <td>{{ p.nbrperso }}</td>
+                                        <td>{{ p.prixtotal * p.nbrperso }}</td>
+                                     
+                                      <td>  <a href="/deletereservationh/{{ p.id }}">
+                                    <button type="button" class="btn btn-danger">Annuler</button>                            </p>
+
+                            </a></td>       
+                                       
+                                        
+                                    </tr>
+
+
+                                {% endfor %}
+                                </tbody>
+                            </table>
+        </tbody>
+    </table>
+ </div>
+
+                    </div>
+                </div>
+            </div>
+       
+    
+    <!-- jQuery is necessary -->
+
+     <script src="//code.jquery.com/jquery.js"></script>
+ 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+
+   
+{% endblock %}

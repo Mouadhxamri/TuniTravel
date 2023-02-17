@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+
+                <div class="row">
+                    <a href="{{ path('hotel_list') }}">
+                        <i class="fa fa-arrow-circle-left" style="font-size: 30px;"></i>
+
+                    </a>
+
+                </div>
+                <div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="card m-b-20">
+                        <img class="card-img-top img-fluid" src="{{ asset('uploads/produit_image/'~image) }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title"> hotel numero : <span style="color:#ff5b5b"> {{id }}</h4>
+                                <p class="card-text">ref : <span style="color:#ff5b5b">{{ ref }}</span> </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">nom: <span style="color:#ff5b5b"> {{ nom }}</span> </li>
+                                <li class="list-group-item">adresse : <span style="color:#ff5b5b"> {{ adresse }}</li>
+                                <li class="list-group-item">prix :<span style="color:#ff5b5b"> {{ prix }}</li>
+                                <li class="list-group-item">description :<span style="color:#ff5b5b"> {{ description }}</li>
+
+                            
+                            {#                            <div class="card-body">#}
+                            {#                                <a href="#" class="card-link">Card link</a>#}
+                            {#                                <a href="#" class="card-link">Another link</a>#}
+                            {#                            </div>#}
+                        </div>
+
+                    </div>
+<center>
+<div class="test_content_container" style="width: 400px;height: 250px;border-radius: 20px;background-color: rgba(134,113,152,0.07)">
+                <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe style="border-radius: 20px" width="400" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q='{{ nom }}{{ adresse }}~'&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></a>
+                        <br>
+                        <style>.mapouter{position:relative;text-align:right;height:230px;width:360px;}</style>
+                    </div>
+                </div>
+            </div>
+            </center>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

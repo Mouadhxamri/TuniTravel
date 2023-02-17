@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="content-page">
+        <!-- Start content -->
+
+       <div class="card-box">
+     <div class="dropdown pull-right">
+    <div class="app-content">
+
+            <div id="div_chart"></div>
+            <div id="div_chart1"></div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                {{ gc_draw([piechart, piechart1],['div_chart', 'div_chart1']) }}
+               
+            </script>
+           
+       
+        </div>
+        <a href="{{ path('hotel_list') }}">
+        <button type="button" class="btn btn-purple btn-rounded w-md waves-effect waves-light m-b-5">Retour</button></a>
+    </div>
+    </div>
+
+    
+{% endblock %}

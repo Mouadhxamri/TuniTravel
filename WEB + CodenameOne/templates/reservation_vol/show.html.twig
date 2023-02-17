@@ -1,0 +1,52 @@
+{% extends 'empty.html.twig' %}
+
+{% block title %}ReservationVol{% endblock %}
+
+{% block body %}
+    <h1>ReservationVol</h1>
+
+    <table class="table table-striped table-bordered">
+        <tbody>
+            
+            <tr>
+                <th>IdUser</th>
+                <td>{{ reservation_vol.idUser }}</td>
+            </tr>
+            <tr>
+                <th>Date Début</th>
+                <td>{{ reservation_vol.dateDebut ? reservation_vol.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date Fin</th>
+                <td>{{ reservation_vol.dateFin ? reservation_vol.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Prix Total</th>
+                <td>{{ reservation_vol.prixTotal }}</td>
+            </tr>
+            <tr>
+                <th>IdVol</th>
+                <td>{{ reservation_vol.idVol }}</td>
+            </tr>
+            <tr>
+                <th>Nombre Passagers</th>
+                <td>{{ reservation_vol.nbrpsg }}</td>
+            </tr>
+            <tr>
+                <th>Compagnie aérienne</th>
+                <td>{{ reservation_vol.aerocomp }}</td>
+            </tr>
+            <tr>
+                <th>Classe</th>
+                <td>{{ reservation_vol.classe }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<a class="btn btn-light" href="{{ path('app_reservation_vol_index') }}">Retour à la liste</a>
+
+    <a class="btn btn-primary btn-lg btn-block btn-danger " href="{{ path('app_reservation_vol_delete', {'idResv': reservation_vol.idResv}) }}">Supprimer</a>
+     <a class="btn  btn-lg btn-block btn-secondary " href="{{ path('app_reservation_vol_edit', {'idResv': reservation_vol.idResv}) }}">Modifier</a>
+   
+
+{% endblock %}

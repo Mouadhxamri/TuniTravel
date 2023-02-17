@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation Vols{% endblock %}
+
+{% block body %}
+    <h1>Reservation Vols</h1>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                
+                <th>IdUser</th>
+                <th>Date Début</th>
+                <th>Date Fin</th>
+                <th>Prix Total</th>
+                <th>IdVol</th>
+                <th>Nombre Passagers</th>
+                <th>AeroComp</th>
+                <th>Classe</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation_vol in reservation_vols %}
+            <tr>
+                
+                <td>{{ reservation_vol.idUser }}</td>
+                <td>{{ reservation_vol.dateDebut ? reservation_vol.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ reservation_vol.dateFin ? reservation_vol.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ reservation_vol.prixTotal }}</td>
+                <td>{{ reservation_vol.idVol }}</td>
+                <td>{{ reservation_vol.nbrpsg }}</td>
+                <td>{{ reservation_vol.aerocomp }}</td>
+                <td>{{ reservation_vol.classe }}</td>
+                <td>
+                    <a href="{{ path('app_reservation_vol_show', {'idResv': reservation_vol.idResv}) }}"><i class="fa fa-search" aria-hidden="true" style="color:#888888;font-size:20px"></i></a>
+                    </td>
+                    <td>
+                    <a href="{{ path('app_reservation_vol_edit', {'idResv': reservation_vol.idResv}) }}"><i class="fa fa-pencil" style="color:#3CB371;font-size:20px" ></i></a>
+                    </td>
+                     <td>
+                    
+                        {{ include('reservation_vol/_delete_form.html.twig') }}
+
+                    </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+
+        </tbody>
+    </table>
+<td>
+    <a class="btn btn-success"  href="{{ path('app_reservation_vol_new', {'idVol': reservation_vol.idVol}) }}">Ajouter Réservation</a>
+   </td>
+   
+    {% endfor %}
+    {{ knp_pagination_render(reservation_vols)}}
+{% endblock %}

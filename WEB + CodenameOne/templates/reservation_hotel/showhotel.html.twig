@@ -1,0 +1,56 @@
+{% extends 'empty.html.twig' %}
+
+{% block title %}Hotels{% endblock %}
+
+{% block body %}
+    <td>
+                                <a href="{{ path('app_reservation_hotel1') }}">
+                                    <button type="button" class="btn btn-info">Mes Réservations!</button>                            </p>
+
+                            </a>
+                                    </td>
+    <table class="table">
+        
+        <tbody>
+         <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>image</th>
+                                    <th>ref</th>
+                                    <th>nom</th>
+                                    <th>description</th>
+                                    <th>adresse</th>
+                                    <th>prix</th>
+                                    <th> </th>
+                                    
+                                   
+                                </tr>
+                                </thead>
+                                <body>
+                                {% for p in  hotels %}
+                                    <tr>
+                                     
+                                   <td>    <img class="card-img-top img-fluid" src="{{ asset('uploads/produit_image/'~p.image) }}" alt="Card image cap"></td>
+                                        <td>{{ p.ref }}</td>
+                                        <td>{{ p.nom }}</td>
+                                        <td>{{ p.description }}</td>
+                                        <td>{{ p.adresse }}</td>
+                                        <td>{{ p.prix }}</td>
+                                      <td>  <a href="/addreservationhotel/{{ p.id }}">
+                                    <button type="button" class="btn btn-success">Réserver</button>                            </p>
+
+                            </a></td>
+
+                                       
+                                        
+                                    </tr>
+
+
+                                {% endfor %}
+                                </tbody>
+                            </table>
+        </tbody>
+    </table>
+
+   
+{% endblock %}
